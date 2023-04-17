@@ -51,6 +51,7 @@ console.log('skTopRight   : ' + skTopRight);
 
 // TODO : replace with DB call
 // generate 300k points across South Korea
+//const pointCount = 248930; // test with 30k points
 const pointCount = 300000; // test with 30k points
 var skFeatures = new Array(pointCount);
 //const skCoordinates = new Array(pointCount);
@@ -265,7 +266,7 @@ let moveEndTimer;
 map.on('moveend', (e) => {
 	if(moveEndTimer) clearTimeout(moveEndTimer);
 	
-	moveEndTimer = setTimeout(function() {
+	//moveEndTimer = setTimeout(function() {
 		handleMoveEnd().then(() => {
 			// map.addLayer(raster);
 			map.addLayer(clusters);
@@ -274,7 +275,7 @@ map.on('moveend', (e) => {
 		}).catch((error) => {
 			console.error('Error handling needed: ', error);
 		})
-	}, 500);
+	//}, 500);
 });
 
 function handleMoveEnd(){
